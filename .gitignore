@@ -1,4 +1,5 @@
-/src/META.rocq-plugin-patmycoq
+/src/META.rocq-plugin-rocqmypat
+
 ### Coq ###
 .*.aux
 .*.d
@@ -6,6 +7,8 @@
 *.cma
 *.cmi
 *.cmo
+*.cmt
+*.cmti
 *.cmx
 *.cmxa
 *.cmxs
@@ -45,3 +48,24 @@ time-of-build-after.log
 time-of-build-before.log
 time-of-build-both.log
 time-of-build-pretty.log
+
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+

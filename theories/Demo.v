@@ -1,28 +1,15 @@
-From Tuto0 Require Import Loader.
+From Rocqmypat Require Import Rocqmypat.
 
-(*** Printing messages ***)
-
-HelloWorld.
-
-Lemma test : True.
+Lemma test : (forall x : nat, True) -> True.
 Proof.
-hello_world.
-Abort.
+  intros.
+  pat `forall x, True` (apply pat).
+  exact 0.
+Qed.
 
-(*** Printing warnings ***)
-
-HelloWarning.
-
-Lemma test : True.
+Lemma test1 : (forall x : nat, True) -> True.
 Proof.
-hello_warning.
-Abort.
-
-(*** Signaling errors ***)
-
-Fail HelloError.
-
-Lemma test : True.
-Proof.
-Fail hello_error.
-Abort.
+  intros.
+  spat `forall x, _` (apply spat).
+  exact 0.
+Qed.

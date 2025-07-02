@@ -1,0 +1,55 @@
+DECLARE PLUGIN "rocq-plugin-rocqmypat.plugin"
+
+{
+
+open Ltac_plugin
+
+open Tacexpr
+open Constrexpr
+open Names
+
+open Procq.Constr
+
+open Pltac
+
+}
+
+ARGUMENT EXTEND match_pattern
+  | [ cpattern(pc) ] -> { Term pc }
+  END
+
+ARGUMENT EXTEND tac
+  | [ tactic(t) ] -> { t }
+  END
+
+(* pat `forall x: nat, _` (apply pat in H3) *)
+(* for now we have to use exactly pat in the tactic *)
+TACTIC EXTEND pat_tactical
+| [ "pat" "`" match_pattern(p) "`" tac(t) ] ->
+  { let nm = CAst.make (Name.Name (Id.of_string "pat")) in
+    let tac: Tacexpr.raw_tactic_expr = t in
+    let hyp = Hyp (nm, p) in
+    (* TODO(kπ) vvv plug nm for Name.Anonymous *)
+    (* let t_plugged = _ in *)
+    (* let tac_expr = CAst.make (TacArg (TacGeneric t)) in *)
+    let match_ctx_rules = [Pat ([hyp], Term (CAst.make (CHole None)), tac)] in
+    let match_lexpr = CAst.make (TacMatchGoal (Once, false, match_ctx_rules)) in
+    Tacinterp.interp match_lexpr
+  }
+END
+
+(* spat `forall x: nat, _` (apply spat in H3) *)
+(* for now we have to use exactly spat in the tactic *)
+TACTIC EXTEND spat_tactical
+| [ "spat" "`" match_pattern(p) "`" tac(t) ] ->
+  { let nm = CAst.make (Name.Name (Id.of_string "spat")) in
+    let tac: Tacexpr.raw_tactic_expr = t in
+    let hyp = Hyp (nm, p) in
+    (* TODO(kπ) vvv plug nm for Name.Anonymous *)
+    (* let t_plugged = _ in *)
+    (* let tac_expr = CAst.make (TacArg (TacGeneric t)) in *)
+    let match_ctx_rules = [Pat ([hyp], Subterm (None, (CAst.make (CHole None))), tac)] in
+    let match_lexpr = CAst.make (TacMatchGoal (Once, false, match_ctx_rules)) in
+    Tacinterp.interp match_lexpr
+  }
+END
