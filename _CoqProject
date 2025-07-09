@@ -1,14 +1,14 @@
--R theories/ Rocqmypat
+-R theories/ Patat
 
--generate-meta-for-package rocq-plugin-rocqmypat
+-generate-meta-for-package rocq-plugin-patat
 
 -I src
 
-theories/Rocqmypat.v
+theories/Patat.v
 theories/Demo.v
 
-src/rocqmypat_main.ml
-src/rocqmypat_main.mli
-src/g_rocqmypat.mlg
+src/patat_main.ml
+src/patat_main.mli
+src/g_patat.mlg
 
-src/rocqmypat_plugin.mlpack
+src/patat_plugin.mlpack

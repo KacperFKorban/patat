@@ -1,11 +1,11 @@
-# Rocq My Pat - shorthand matches for Coq proof scripts
+# Patat - shorthand matches for Coq proof scripts
 
-Using Rocq My Pat, you can pat the hypotheses in your Rocq proofs in a shorter way.
+Using Patat, you can pat the hypotheses in your Rocq proofs in a shorter way.
 
 ## Example
 
 ```coq
-From Rocqmypat Require Import Rocqmypat.
+From Patat Require Import Patat.
 
 Lemma test : (forall x : nat, True) -> True.
 Proof.

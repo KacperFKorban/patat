@@ -1,4 +1,4 @@
-From Rocqmypat Require Import Rocqmypat.
+From Patat Require Import Patat.
 
 Lemma test : (forall x : nat, True) -> True.
 Proof.
