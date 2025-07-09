@@ -1,5 +1,7 @@
 # Patat - shorthand matches for Coq proof scripts
 
+> Patat – One of the names for the sweet potato in Polish.
+
 Using Patat, you can pat the hypotheses in your Rocq proofs in a shorter way.
 
 ## Example

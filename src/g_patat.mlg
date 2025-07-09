@@ -33,7 +33,7 @@ TACTIC EXTEND pat_tactical
     (* let t_plugged = _ in *)
     (* let tac_expr = CAst.make (TacArg (TacGeneric t)) in *)
     let match_ctx_rules = [Pat ([hyp], Term (CAst.make (CHole None)), tac)] in
-    let match_lexpr = CAst.make (TacMatchGoal (Once, false, match_ctx_rules)) in
+    let match_lexpr = CAst.make (TacMatchGoal (Select, false, match_ctx_rules)) in
     Tacinterp.interp match_lexpr
   }
 END
@@ -49,7 +49,7 @@ TACTIC EXTEND spat_tactical
     (* let t_plugged = _ in *)
     (* let tac_expr = CAst.make (TacArg (TacGeneric t)) in *)
     let match_ctx_rules = [Pat ([hyp], Subterm (None, (CAst.make (CHole None))), tac)] in
-    let match_lexpr = CAst.make (TacMatchGoal (Once, false, match_ctx_rules)) in
+    let match_lexpr = CAst.make (TacMatchGoal (Select, false, match_ctx_rules)) in
     Tacinterp.interp match_lexpr
   }
 END
