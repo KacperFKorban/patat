@@ -1,4 +1,5 @@
 /src/META.rocq-plugin-patat
+/src/g_patat.ml
 
 ### Coq ###
 .*.aux
