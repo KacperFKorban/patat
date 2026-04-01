@@ -1,1 +1,1 @@
-Declare ML Module "rocq-plugin-patat.plugin".
+Declare ML Module "patat-plugin.plugin".

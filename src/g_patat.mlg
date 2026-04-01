@@ -1,4 +1,4 @@
-DECLARE PLUGIN "rocq-plugin-patat.plugin"
+DECLARE PLUGIN "patat-plugin.plugin"
 
 {
 

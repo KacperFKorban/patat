@@ -1,8 +1,9 @@
 (library
  (name patat_plugin)
- (public_name rocq-runtime.plugins.tutorial.p0)
- (libraries rocq-runtime.plugins.ltac)
- (libraries rocq-runtime.vernac))
+ (public_name patat-plugin.plugin)
+ (flags :standard -w -27)
+ (libraries rocq-runtime.plugins.ltac rocq-runtime.vernac)
+)
 
 (rule
  (targets g_patat.ml)

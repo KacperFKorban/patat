@@ -1,0 +1,5 @@
+(rocq.theory
+ (name Patat)
+ (package patat-plugin)
+ (plugins patat-plugin.plugin)
+)
