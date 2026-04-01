@@ -1,0 +1,18 @@
+{
+  "files.exclude": {
+    "**/*.vok": true,
+    "**/*.vos": true,
+    "**/*.vo": true,
+    "**/*.aux": true,
+    "**/*.glob": true,
+    "**/*.cmi": true,
+    "**/*.cmt": true,
+    "**/*.cmx": true,
+    "**/*.cmxa": true,
+    "**/*.cmxs": true,
+    "**/*.ml.d": true,
+    "**/*.mli.d": true,
+    "**/*.mlpack.d": true,
+    "**/*.mlg.d": true,
+  },
+}
