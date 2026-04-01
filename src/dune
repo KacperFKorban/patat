@@ -1,6 +1,6 @@
 (library
- (name patat_plugin)
- (public_name patat-plugin.plugin)
+ (name patat)
+ (public_name patat.plugin)
  (flags :standard -w -27)
  (libraries rocq-runtime.plugins.ltac rocq-runtime.vernac)
 )

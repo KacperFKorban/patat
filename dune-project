@@ -3,7 +3,7 @@
 
 (generate_opam_files true)
 
-(name patat-plugin)
+(name patat)
 
 (homepage "https://github.com/kacperFKorban/patat")
 (authors "Kacper Korban")
@@ -12,5 +12,5 @@
 (license MIT)
 
 (package
- (name patat-plugin)
+ (name patat)
  (synopsis "A simple hypothesis matching syntax sugar"))

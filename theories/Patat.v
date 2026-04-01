@@ -1,1 +1,1 @@
-Declare ML Module "patat-plugin.plugin".
+Declare ML Module "patat.plugin".

@@ -1,4 +1,4 @@
-DECLARE PLUGIN "patat-plugin.plugin"
+DECLARE PLUGIN "patat.plugin"
 
 {
 
