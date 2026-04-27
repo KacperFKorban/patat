@@ -4,6 +4,22 @@
 
 Using Patat, you can pat the hypotheses in your Rocq proofs in a shorter way.
 
+## Setup
+
+### dune
+
+Pin this repository:
+```sh
+opam pin add patat.dev https://github.com/kacperFKorban/patat.git
+```
+
+Add the dependency to your `dune-project`:
+```dune
+(depends
+ (patat (= "dev"))
+)
+```
+
 ## Example
 
 ```coq
