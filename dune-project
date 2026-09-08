@@ -13,4 +13,5 @@
 
 (package
  (name patat)
- (synopsis "A simple hypothesis matching syntax sugar"))
+ (synopsis "A simple hypothesis matching syntax sugar")
+ (depends rocq-core))
