@@ -60,17 +60,17 @@ TACTIC EXTEND pat_tactical
   }
 END
 
-TACTIC EXTEND reverse_pat_tactical_as
-| [ "reverse" "pat" "`" cpat(p) "`" "as" ident(idr) "at" tac(t) ] ->
+TACTIC EXTEND rpat_tactical_as
+| [ "rpat" "`" cpat(p) "`" "as" ident(idr) "at" tac(t) ] ->
   { let nm = CAst.make (Names.Name.mk_name idr) in
     let tac: Tacexpr.raw_tactic_expr = t in
     do_pat ~reverse:true (Term p) nm tac
   }
 END
 
-TACTIC EXTEND reverse_pat_tactical
-| [ "reverse" "pat" "`" cpat(p) "`" "at" tac(t) ] ->
-  { let nm = CAst.make (Name.Name (Id.of_string "pat")) in
+TACTIC EXTEND rpat_tactical
+| [ "rpat" "`" cpat(p) "`" "at" tac(t) ] ->
+  { let nm = CAst.make (Name.Name (Id.of_string "rpat")) in
     let tac: Tacexpr.raw_tactic_expr = t in
     do_pat ~reverse:true (Term p) nm tac
   }

@@ -39,13 +39,13 @@ Proof.
 Qed.
 ```
 
-`reverse pat` searches matching hypotheses from oldest to newest:
+`rpat` searches matching hypotheses from oldest to newest:
 
 ```coq
 Goal forall n m : nat, n = n -> m = m -> n = n.
 Proof.
   intros n m Hn Hm.
-  reverse pat `_ = _` at exact pat.
+  rpat `_ = _` at exact rpat.
 Qed.
 ```
 
