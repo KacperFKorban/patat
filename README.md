@@ -39,6 +39,16 @@ Proof.
 Qed.
 ```
 
+`reverse pat` searches matching hypotheses from oldest to newest:
+
+```coq
+Goal forall n m : nat, n = n -> m = m -> n = n.
+Proof.
+  intros n m Hn Hm.
+  reverse pat `_ = _` at exact pat.
+Qed.
+```
+
 ## Inspiration
 
 Inspired by [`qpat_assum`](https://hol-theorem-prover.org/cheatsheet.html#assumption-management) from [HOL4](https://hol-theorem-prover.org/).
