@@ -17,13 +17,13 @@ open Pltac
 
 {
 
-let do_pat p nm tac =
+let do_pat ?(reverse = false) p nm tac =
   let hyp = Hyp (nm, p) in
   (* TODO(kπ) vvv plug nm for Name.Anonymous *)
   (* let t_plugged = _ in *)
   (* let tac_expr = CAst.make (TacArg (TacGeneric t)) in *)
   let match_ctx_rules = [Pat ([hyp], Term (CAst.make (CHole None)), tac)] in
-  let match_lexpr = CAst.make (TacMatchGoal (Select, false, match_ctx_rules)) in
+  let match_lexpr = CAst.make (TacMatchGoal (Select, reverse, match_ctx_rules)) in
   Tacinterp.interp match_lexpr
 
 }
@@ -57,6 +57,22 @@ TACTIC EXTEND pat_tactical
   { let nm = CAst.make (Name.Name (Id.of_string "pat")) in
     let tac: Tacexpr.raw_tactic_expr = t in
     do_pat (Term p) nm tac
+  }
+END
+
+TACTIC EXTEND rpat_tactical_as
+| [ "rpat" "`" cpat(p) "`" "as" ident(idr) "at" tac(t) ] ->
+  { let nm = CAst.make (Names.Name.mk_name idr) in
+    let tac: Tacexpr.raw_tactic_expr = t in
+    do_pat ~reverse:true (Term p) nm tac
+  }
+END
+
+TACTIC EXTEND rpat_tactical
+| [ "rpat" "`" cpat(p) "`" "at" tac(t) ] ->
+  { let nm = CAst.make (Name.Name (Id.of_string "rpat")) in
+    let tac: Tacexpr.raw_tactic_expr = t in
+    do_pat ~reverse:true (Term p) nm tac
   }
 END
 
